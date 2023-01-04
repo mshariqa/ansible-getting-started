@@ -1,0 +1,17 @@
+-
+  name: Print on the basis of condition
+  hosts: localhost
+  tasks:
+    - name: Store list of files and directorys
+      shell: ls /Users/shariq/list_dir
+      register: dir_contents
+
+    - name: Check if the directory is empty
+      debug:
+        msg: "Directory is empty"
+      when: dir_contents.stdout == ''
+
+    - name: Check if the directory is empty
+      debug:
+        msg: "Directory is not empty"
+      when: dir_contents.stdout != ''
