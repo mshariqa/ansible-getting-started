@@ -1,0 +1,12 @@
+-
+  name: List directory content
+  hosts: localhost
+  tasks:
+    - name: Generate all files and directory List
+      shell: ls /Users/shariq/list_dir
+      register: dir_contents
+
+    - name: Print directory content
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ dir_contents.stdout.split() }}"

@@ -1,5 +1,5 @@
 -
-  name: Play 1
+  name: Print Date
   hosts: localhost
   tasks:
     - name: Execute Date Command
@@ -10,7 +10,7 @@
         msg: "Date is {{ current_date.stdout }}"
 
 -
-  name: Play 2
+  name: Echo
   hosts: localhost
   tasks:
     - name: Execute Echo
