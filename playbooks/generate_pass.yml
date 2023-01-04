@@ -1,0 +1,13 @@
+-
+  name: Generate Password
+  hosts: localhost
+  tasks:
+    - community.general.homebrew:
+        name: pwgen
+        state: present
+    - name: Generate Password
+      shell: pwgen -N 1 -s 30
+      register: mypass
+    - name: Print Generated Password
+      debug:
+        msg: "Password is {{ mypass.stdout }}"
