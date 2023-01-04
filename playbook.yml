@@ -1,0 +1,17 @@
+-
+  name: Play 1
+  hosts: localhost
+  tasks:
+    - name: Execute Date Command
+      command: date
+      register: current_date
+    - name: Print Date
+      debug:
+        msg: "Date is {{ current_date.stdout }}"
+
+-
+  name: Play 2
+  hosts: localhost
+  tasks:
+    - name: Execute Echo
+      command: echo 'Shariq'
