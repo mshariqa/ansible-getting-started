@@ -9,4 +9,5 @@
     - name: Print directory content
       debug:
         msg: "{{ item }}"
-      loop: "{{ dir_contents.stdout.split() }}"
+      # loop: "{{ dir_contents.stdout.split() }}"
+      loop: "{{ dir_contents.stdout_lines }}" 

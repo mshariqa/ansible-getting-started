@@ -1,0 +1,16 @@
+-
+  name: Backup directory content
+  hosts: localhost
+  tasks:
+    - name: Generate all files and directory List
+      shell: ls /Users/shariq/list_dir
+      register: dir_contents
+    - name: Create a new directory under tmp
+      file:
+        path: /tmp/list_dir
+        state: directory
+    - name: Copy to backup dir
+      copy:
+        src: "/Users/shariq/list_dir/{{item}}"
+        dest: /tmp/list_dir
+      loop: "{{ dir_contents.stdout_lines }}" 
